@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 
-import { Appbar, TouchableRipple } from 'react-native-paper';
+import { TouchableRipple } from 'react-native-paper';
 
 
 

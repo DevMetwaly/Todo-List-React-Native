@@ -16,6 +16,7 @@ const TodoListHeader = (props) => {
 
     return (
         <Appbar.Header>
+            {props.renderBackButton?<Appbar.BackAction onPress={props.onBackClick} />:null}
             <Appbar.Content title="Todo" primary/>
             <Appbar.Action icon="search" /*onPress={this._onSearch}*/ />
         </Appbar.Header>

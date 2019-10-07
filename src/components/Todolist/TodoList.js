@@ -6,10 +6,13 @@ import {
   View,
   Text,
 } from 'react-native';
-import Swipeout from 'react-native-swipeout';
+import TodoListItem from './TodoListItem';
 
-import Icon from 'react-native-vector-icons/Ionicons';
-
+// Animated.timing(this.state.xPosition, {
+//   toValue: 100,
+//   easing: Easing.back(),
+//   duration: 2000,
+// }).start();
 
 
 const TodoList = (props) => {
@@ -26,40 +29,8 @@ const TodoList = (props) => {
             </View>
             <View>
               {
-                taskSection.tasks.map((task, idx) =>
-                  <Swipeout 
-                    key={idx}
-                    autoClose
-                    backgroundColor='transparent'
-                    
-                    right={[
-                      {
-                        type:"delete",
-                        text: 'DELETE',
-                        onPress: () => props.onDelete(task.id)
-                      }
-                    ]}
-                  >
-                    <View style={styles.taskView}>
-                      <View style={styles.taskTitleView}>
-                        <Text style={styles.taskText}>{task.title}</Text>
-                      </View>
-                      <View style={styles.taskActionView}>
-                        <Icon.Button
-                          name="ios-checkmark-circle-outline"
-                          backgroundColor="white"
-                          color="green"
-                          size={30}
-                          iconStyle={{ marginRight: 0 }}
-                          borderRadius={5000}
-                          onPress={() => props.onCheck(task.id)}
-                        />
-
-                      </View>
-                    </View>
-                  </Swipeout>
-
-                )}
+                taskSection.tasks.map((task, idx) => <TodoListItem {...props} key={idx} task={task}/>)
+              }
             </View>
           </View>
         )}
