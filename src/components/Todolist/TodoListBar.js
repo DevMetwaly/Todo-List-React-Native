@@ -13,7 +13,6 @@ import { TouchableRipple } from 'react-native-paper';
 
 
 const TodoListBar = (props) => {
-    console.log(props.bars)
     return (
         <View style={styles.root}>
 

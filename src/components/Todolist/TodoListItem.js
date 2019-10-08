@@ -28,7 +28,6 @@ class TodoListItem extends React.Component {
     }
     render() {
         const props = this.props
-
         return (
             <Animated.View key={props.task.id} style={{ opacity: this.state.animate }}>
                 <Swipeout

@@ -85,7 +85,7 @@ class Todo extends React.Component {
                     {
                         id: '4',
                         title: 'Swim',
-                        description: 'eat breakfast',
+                        description: 'Go to ur training, don\'t forget your equipments and buy a sandwitch.',
                         status: 'active',
                         deadline: '2019',
                     },
@@ -178,12 +178,15 @@ class Todo extends React.Component {
 
     handleDetailClose = () => this.setState({ isTodoSelected: false })
     handleTodoClick = (id) => {
-        
+
         for (let taskSection of this.state.tasks) {
             for (let task of taskSection.tasks) {
                 if (task.id === id) {
-                    this.props.navigation.navigate('Details',{
-                        task: task
+                    this.props.navigation.navigate('Details', {
+                        task: task,
+                        onCheck: this.handleTaskCheck,
+                        onDelete: this.handleTaskDelete,
+                        onSelect: this.handleTodoClick
                     })
                     return
                 }
@@ -195,7 +198,6 @@ class Todo extends React.Component {
     render() {
         let tasks = this.state.activeIdx === 0 ? this.getActiveTasks() : this.getCompletedTasks();
 
-        console.log(this.getCompletedTasks().length)
         return (
             <>
                 <TodoListBar
@@ -239,7 +241,7 @@ let MainNavigator = createAppContainer(createStackNavigator({
     {
         defaultNavigationOptions: {
             header: props => <TodoListHeader renderBackButton={props.navigation.state.routes.length > 1}
-            onBackClick={()=>props.navigation.goBack()} />
+                onBackClick={() => props.navigation.goBack()} />
         }
     }
 ));
