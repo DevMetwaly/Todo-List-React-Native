@@ -7,4 +7,4 @@
 <img src="imgs/Screenshot_1570576654.png" style="display:inline;width:150px"/>
 
 
-![test image size](https://raw.githubusercontent.com/spearkiller0/Todo-List-React-Native/master/imgs/Screenshot_1570398016.png){:width="40%"}
+<img src="https://raw.githubusercontent.com/spearkiller0/Todo-List-React-Native/master/imgs/Screenshot_1570398016.png" width="48">
